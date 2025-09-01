@@ -27,18 +27,28 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(files("libs/spotify-app-remote-release-0.8.0.aar"))
+
+    // Spotify Auth SDK
+    implementation("com.spotify.android:auth:1.2.5")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.12.1")
+
+    // Browser (nếu chưa có trong libs.versions.toml)
+    implementation("androidx.browser:browser:1.9.0")
+
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
